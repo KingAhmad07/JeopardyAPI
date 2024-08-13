@@ -10,15 +10,3 @@ openai_client = AzureOpenAI(
     azure_endpoint=ENDPOINT,
     api_version="2024-05-01-preview"
 )
-advice_prompt = "Hi, respond back"
-response = openai_client.chat.completions.create(
-    model=MODEL,
-    messages=[
-        {"role": "system", "content": "You are a highly skilled teacher that wants to create jeopardry"},
-        {"role": "user", "content": advice_prompt}
-    ],
-    max_tokens=300
-)
-ai_response = response.choices[0].message.content
-print(ai_response)
-
